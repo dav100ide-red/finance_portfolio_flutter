@@ -47,6 +47,5 @@ class Header extends StatelessWidget {
         ],
       ),
     );
-    ;
   }
 }

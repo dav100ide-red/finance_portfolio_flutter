@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_finance_portfolio/const.dart';
-import 'package:flutter_finance_portfolio/data/stock.dart';
 import 'package:flutter_finance_portfolio/utility/ultility.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
@@ -41,7 +40,7 @@ class PortfolioSection extends StatelessWidget {
             height: 142,
             child: ListView.builder(
               shrinkWrap: true,
-              itemCount: stockPortfolio.length,
+              itemCount: 1,
               scrollDirection: Axis.horizontal,
               itemBuilder:
                   (context, index) => InkWell(
@@ -52,7 +51,7 @@ class PortfolioSection extends StatelessWidget {
                       height: 142,
                       width: 200,
                       decoration: BoxDecoration(
-                        color: HexColor('${stockPortfolio[index].color}')
+                        color: HexColor('#4c956c')
                         // ignore: deprecated_member_use
                         .withOpacity(0.12),
                         borderRadius: BorderRadius.circular(16),
@@ -66,7 +65,7 @@ class PortfolioSection extends StatelessWidget {
                               CircleAvatar(
                                 radius: 24,
                                 backgroundImage: NetworkImage(
-                                  '${stockPortfolio[index].iconUrl}',
+                                  'https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/800px-Starbucks_Corporation_Logo_2011.svg.png',
                                 ),
                               ),
                               const SizedBox(width: 8),
@@ -74,14 +73,14 @@ class PortfolioSection extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    '${stockPortfolio[index].symbol}',
+                                    'SBUX',
                                     style: GoogleFonts.poppins(
                                       fontSize: 16,
                                       fontWeight: FontWeight.w600,
                                     ),
                                   ),
                                   Text(
-                                    '${stockPortfolio[index].name}',
+                                    'Starbucks',
                                     style: GoogleFonts.poppins(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w400,
@@ -93,7 +92,7 @@ class PortfolioSection extends StatelessWidget {
                           ),
                           const SizedBox(height: 12),
                           Text(
-                            '${stockPortfolio[index].price}',
+                            '\$80.55',
                             style: GoogleFonts.poppins(
                               fontSize: 18,
                               fontWeight: FontWeight.w600,
@@ -105,7 +104,7 @@ class PortfolioSection extends StatelessWidget {
                               const Icon(Iconsax.arrow_up_1, size: 18),
                               const SizedBox(width: 4),
                               Text(
-                                '${stockPortfolio[index].change}',
+                                '2.50(+1.60%)',
                                 style: GoogleFonts.poppins(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w400,

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_finance_portfolio/const.dart';
-import 'package:flutter_finance_portfolio/data/stock.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class WatchlistSection extends StatelessWidget {
@@ -38,7 +37,7 @@ class WatchlistSection extends StatelessWidget {
           ListView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
-            itemCount: stockPortfolio.length,
+            itemCount: 1,
             itemBuilder:
                 (context, index) => InkWell(
                   onTap: () {},
@@ -57,7 +56,7 @@ class WatchlistSection extends StatelessWidget {
                             CircleAvatar(
                               radius: 24,
                               backgroundImage: NetworkImage(
-                                '${stockPortfolio[index].iconUrl}',
+                                'https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png',
                               ),
                             ),
                             const SizedBox(width: 8),
@@ -65,14 +64,14 @@ class WatchlistSection extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  '${stockPortfolio[index].symbol}',
+                                  'META',
                                   style: GoogleFonts.poppins(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
                                 Text(
-                                  '${stockPortfolio[index].name}',
+                                  'Facebook',
                                   style: GoogleFonts.poppins(
                                     fontSize: 14,
                                     fontWeight: FontWeight.w400,
@@ -86,14 +85,14 @@ class WatchlistSection extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             Text(
-                              '${stockPortfolio[index].price}',
+                              '\$110.14',
                               style: GoogleFonts.poppins(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
                             Text(
-                              '${stockPortfolio[index].change}',
+                              '4.50(+6.60%)',
                               style: GoogleFonts.poppins(
                                 fontSize: 12,
                                 fontWeight: FontWeight.w400,
