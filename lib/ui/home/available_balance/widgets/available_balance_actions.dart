@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_finance_portfolio/ui/home/widgets/available_balance/widgets/deposit_form.dart';
-import 'package:flutter_finance_portfolio/ui/home/widgets/available_balance/widgets/withdraw_form.dart';
+import 'package:flutter_finance_portfolio/ui/home/available_balance/widgets/deposit_form.dart';
+import 'package:flutter_finance_portfolio/ui/home/available_balance/widgets/withdraw_form.dart';
 import 'package:flutter_finance_portfolio/ui/shared/widgets/btn.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:iconsax/iconsax.dart';
@@ -46,7 +46,7 @@ class AvailableBalanceActions extends ConsumerWidget {
               onPressed: () {
                 _handleWithdrawPress(context);
               },
-              icon: Iconsax.arrow_down_2,
+              icon: Iconsax.arrow_up_2,
             ),
           ),
           const SizedBox(width: 12),
@@ -57,7 +57,7 @@ class AvailableBalanceActions extends ConsumerWidget {
                 _handleDepositPress(context);
               },
               severity: BtnSeverity.secondary,
-              icon: Iconsax.arrow_down_2,
+              icon: Iconsax.arrow_down_1,
             ),
           ),
         ],

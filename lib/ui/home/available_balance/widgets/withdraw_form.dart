@@ -1,12 +1,13 @@
 import 'package:currency_textfield/currency_textfield.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_finance_portfolio/ui/home/widgets/available_balance/controllers/available_balance_controller.dart';
+import 'package:flutter_finance_portfolio/data/models/available_balance_model.dart';
+import 'package:flutter_finance_portfolio/ui/home/available_balance/controllers/available_balance_controller.dart';
 import 'package:flutter_finance_portfolio/ui/shared/widgets/btn.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class DepositForm extends ConsumerWidget {
-  DepositForm({super.key});
+class WithDrawForm extends ConsumerWidget {
+  WithDrawForm({super.key});
   final _formKey = GlobalKey<FormState>();
   final _amountController = CurrencyTextFieldController(
     currencySymbol: "€",
@@ -19,7 +20,7 @@ class DepositForm extends ConsumerWidget {
     AvailableBalanceController availableBalanceController,
   ) {
     if (_formKey.currentState!.validate()) {
-      availableBalanceController.deposit(_amountController.doubleValue);
+      availableBalanceController.withdraw(_amountController.doubleValue);
       Navigator.of(context).pop();
     }
   }
@@ -28,6 +29,10 @@ class DepositForm extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final AvailableBalanceController availableBalanceController = ref.read(
       availableBalanceControllerProvider.notifier,
+    );
+
+    final AvailableBalanceModel availableBalance = ref.read(
+      availableBalanceControllerProvider,
     );
     return Padding(
       padding: EdgeInsets.only(
@@ -43,7 +48,7 @@ class DepositForm extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              'Deposit Funds',
+              'Withdraw Money',
               style: GoogleFonts.poppins(
                 fontSize: 20,
                 fontWeight: FontWeight.w700,
@@ -53,9 +58,10 @@ class DepositForm extends ConsumerWidget {
             TextFormField(
               controller: _amountController,
               keyboardType: TextInputType.number,
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 labelText: 'Amount',
                 border: OutlineInputBorder(),
+                helperText: 'Max: ${availableBalance.formattedBalance}',
               ),
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -63,6 +69,9 @@ class DepositForm extends ConsumerWidget {
                 }
                 if (_amountController.doubleValue <= 0) {
                   return 'Enter a positive number';
+                }
+                if (_amountController.doubleValue > availableBalance.balance) {
+                  return 'Insufficient balance';
                 }
                 return null;
               },

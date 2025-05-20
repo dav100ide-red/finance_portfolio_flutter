@@ -1,7 +1,7 @@
 import 'package:currency_formatter/currency_formatter.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_finance_portfolio/ui/home/widgets/available_balance/controllers/available_balance_controller.dart';
-import 'package:flutter_finance_portfolio/ui/home/widgets/available_balance/widgets/available_balance_actions.dart';
+import 'package:flutter_finance_portfolio/ui/home/available_balance/controllers/available_balance_controller.dart';
+import 'package:flutter_finance_portfolio/ui/home/available_balance/widgets/available_balance_actions.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 
