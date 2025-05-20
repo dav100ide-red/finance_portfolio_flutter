@@ -12,18 +12,21 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class BaseScaffold extends ConsumerWidget {
   const BaseScaffold({super.key});
 
-  List<Widget> _activeScreenWidgets(UiScreen activeScreen) {
+  Widget _activeScreenWidgets(UiScreen activeScreen) {
     switch (activeScreen) {
       case UiScreen.home:
-        return [
-          AvailableBalanceSection(),
-          PortfolioSection(),
-          WatchlistSection(),
-        ];
+        return Column(
+          children: [
+            AvailableBalanceSection(),
+            PortfolioSection(),
+            WatchlistSection(),
+          ],
+        );
+
       case UiScreen.portfolio:
-        return [PortfolioScreen()];
+        return PortfolioScreen();
       case UiScreen.watchlist:
-        return [Text('watchlist', style: TextStyle(fontSize: 40))];
+        return Text('watchlist', style: TextStyle(fontSize: 40));
     }
   }
 
@@ -33,13 +36,7 @@ class BaseScaffold extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(title: Header()),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: _activeScreenWidgets(uiController.activeScreen),
-          ),
-        ),
-      ),
+      body: _activeScreenWidgets(uiController.activeScreen),
       bottomNavigationBar: NavBarBottom(),
     );
   }

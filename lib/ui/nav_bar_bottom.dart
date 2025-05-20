@@ -22,7 +22,7 @@ class NavBarBottom extends ConsumerWidget {
       behaviour: SnakeBarBehaviour.floating,
       snakeShape: SnakeShape.circle,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
       currentIndex: currentIndex,
       backgroundColor: secondaryColor,
       selectedItemColor: Colors.white,

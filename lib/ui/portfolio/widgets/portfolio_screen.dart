@@ -12,11 +12,20 @@ class PortfolioScreen extends ConsumerWidget {
     final portfolio = ref.watch(portfolioControllerProvider);
 
     return Container(
-      height: 500,
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      constraints: BoxConstraints(
+        maxHeight: MediaQuery.of(context).size.height * 0.8, // or any %
+      ),
+      padding: EdgeInsets.fromLTRB(
+        16,
+        16,
+        16,
+        MediaQuery.of(context).padding.bottom + 32,
+      ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          //TODO: put buy/sell section
+          Container(height: 400),
           Text(
             'Portfolio',
             style: GoogleFonts.poppins(
