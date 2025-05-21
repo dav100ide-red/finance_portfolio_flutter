@@ -20,7 +20,7 @@ class WithDrawForm extends ConsumerWidget {
     AvailableBalanceController availableBalanceController,
   ) {
     if (_formKey.currentState!.validate()) {
-      availableBalanceController.withdraw(_amountController.doubleValue);
+      availableBalanceController.subtract(_amountController.doubleValue);
       Navigator.of(context).pop();
     }
   }

@@ -48,7 +48,10 @@ class PortfolioSection extends ConsumerWidget {
             height: 148,
             child: ListView.builder(
               shrinkWrap: true,
-              itemCount: 3,
+              itemCount:
+                  portfolio.holdings.length >= 3
+                      ? 3
+                      : portfolio.holdings.length,
               scrollDirection: Axis.horizontal,
               itemBuilder:
                   (context, index) => Container(

@@ -56,7 +56,10 @@ class StockCard extends StatelessWidget {
                   ),
                 ],
               ),
-              if (withActions) ...[Spacer(), StockCardActions()],
+              if (withActions) ...[
+                Spacer(),
+                StockCardActions(holding: holding),
+              ],
             ],
           ),
           const SizedBox(height: 12),

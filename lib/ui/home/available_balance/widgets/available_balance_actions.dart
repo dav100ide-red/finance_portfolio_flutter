@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_finance_portfolio/ui/home/available_balance/widgets/deposit_form.dart';
 import 'package:flutter_finance_portfolio/ui/home/available_balance/widgets/withdraw_form.dart';
 import 'package:flutter_finance_portfolio/ui/shared/widgets/btn.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:iconsax/iconsax.dart';
 
-class AvailableBalanceActions extends ConsumerWidget {
+class AvailableBalanceActions extends StatelessWidget {
   const AvailableBalanceActions({super.key});
 
   void _handleDepositPress(BuildContext context) {
@@ -35,7 +34,7 @@ class AvailableBalanceActions extends ConsumerWidget {
   }
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 16, right: 16, top: 20, bottom: 8),
       child: Row(

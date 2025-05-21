@@ -7,7 +7,7 @@ part of 'portfolio_controller.dart';
 // **************************************************************************
 
 String _$portfolioControllerHash() =>
-    r'8e3e8e673780f6413e4b73d27c0c3850443d8d0a';
+    r'cd12b36a9c5831237735da78a6c62e228c2f1289';
 
 /// See also [PortfolioController].
 @ProviderFor(PortfolioController)

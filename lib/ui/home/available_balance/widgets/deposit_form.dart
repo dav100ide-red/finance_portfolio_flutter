@@ -19,7 +19,7 @@ class DepositForm extends ConsumerWidget {
     AvailableBalanceController availableBalanceController,
   ) {
     if (_formKey.currentState!.validate()) {
-      availableBalanceController.deposit(_amountController.doubleValue);
+      availableBalanceController.add(_amountController.doubleValue);
       Navigator.of(context).pop();
     }
   }
