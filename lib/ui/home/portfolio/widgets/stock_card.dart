@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_finance_portfolio/data/models/holding_model.dart';
 import 'package:flutter_finance_portfolio/data/models/stock_model.dart';
+import 'package:flutter_finance_portfolio/ui/home/portfolio/widgets/stock_card_actions.dart';
 import 'package:flutter_finance_portfolio/utility/ultility.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
@@ -11,7 +12,9 @@ class StockCard extends StatelessWidget {
     return holding.stock;
   }
 
-  const StockCard({super.key, required this.holding});
+  const StockCard({super.key, required this.holding, this.withActions = false});
+
+  final bool withActions;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +23,7 @@ class StockCard extends StatelessWidget {
       height: 148,
       width: 200,
       decoration: BoxDecoration(
-        color: HexColor('#4c956c').withAlpha(40),
+        color: HexColor('#adacac').withAlpha(40),
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
@@ -53,6 +56,7 @@ class StockCard extends StatelessWidget {
                   ),
                 ],
               ),
+              if (withActions) ...[Spacer(), StockCardActions()],
             ],
           ),
           const SizedBox(height: 12),

@@ -25,8 +25,8 @@ const List<NavItem> navItems = [
   ),
   NavItem(
     screen: UiScreen.portfolio,
-    icon: Icon(Iconsax.document),
-    activeIcon: Icon(Iconsax.document5),
+    icon: Icon(Iconsax.wallet_2),
+    activeIcon: Icon(Iconsax.empty_wallet),
     label: 'portfolio',
   ),
   NavItem(

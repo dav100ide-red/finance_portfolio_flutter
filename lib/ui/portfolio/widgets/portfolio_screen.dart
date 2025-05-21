@@ -1,4 +1,3 @@
-import 'package:flutter_finance_portfolio/const.dart';
 import 'package:flutter_finance_portfolio/ui/home/portfolio/controllers/portfolio_controller.dart';
 import 'package:flutter_finance_portfolio/ui/home/portfolio/widgets/stock_card.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -25,35 +24,25 @@ class PortfolioScreen extends ConsumerWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Column(
-            children: [
-              Text(
-                'Total holdings',
-                style: GoogleFonts.poppins(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.only(top: 5),
-                decoration: BoxDecoration(
-                  color: primaryColor,
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                padding: const EdgeInsets.symmetric(
-                  vertical: 5,
-                  horizontal: 16,
-                ),
-                child: Text(
-                  portfolio.totalHoldingsInEuro,
+          Center(
+            child: Column(
+              children: [
+                Text(
+                  'Total holdings',
                   style: GoogleFonts.poppins(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w600,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
                   ),
                 ),
-              ),
-            ],
+                Text(
+                  portfolio.totalHoldingsInEuro,
+                  style: GoogleFonts.poppins(
+                    fontSize: 34,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ],
+            ),
           ),
           SizedBox(height: 16),
           Text(
@@ -71,7 +60,7 @@ class PortfolioScreen extends ConsumerWidget {
                 final holding = portfolio.holdings[index];
                 return Container(
                   margin: const EdgeInsets.only(bottom: 10),
-                  child: StockCard(holding: holding),
+                  child: StockCard(holding: holding, withActions: true),
                 );
               },
             ),

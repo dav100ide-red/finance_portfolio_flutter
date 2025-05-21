@@ -3,5 +3,5 @@
 A new Flutter project.
 
 
-terminale con questi due comandi
+terminale con qst comando
 - dart run build_runner watch -d

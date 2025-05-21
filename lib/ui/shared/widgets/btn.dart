@@ -11,11 +11,13 @@ class Btn extends StatelessWidget {
     required this.onPressed,
     this.icon,
     this.severity = BtnSeverity.primary,
+    this.height = 58,
   });
   final String label;
   final void Function() onPressed;
   final IconData? icon;
   final BtnSeverity severity;
+  final double height;
 
   Color _getBtnColor() {
     return severity == BtnSeverity.primary ? primaryColor : Colors.white;
@@ -59,7 +61,7 @@ class Btn extends StatelessWidget {
       elevation: 0,
       focusElevation: 0,
       highlightElevation: 0,
-      height: 58,
+      height: height,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(32),
         side: _getBorderSide(),
