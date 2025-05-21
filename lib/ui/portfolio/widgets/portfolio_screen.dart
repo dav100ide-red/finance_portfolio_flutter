@@ -1,3 +1,4 @@
+import 'package:flutter_finance_portfolio/const.dart';
 import 'package:flutter_finance_portfolio/ui/home/portfolio/controllers/portfolio_controller.dart';
 import 'package:flutter_finance_portfolio/ui/home/portfolio/widgets/stock_card.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -22,10 +23,39 @@ class PortfolioScreen extends ConsumerWidget {
         MediaQuery.of(context).padding.bottom + 32,
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          //TODO: put buy/sell section
-          Container(height: 400),
+          Column(
+            children: [
+              Text(
+                'Total holdings',
+                style: GoogleFonts.poppins(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 5),
+                decoration: BoxDecoration(
+                  color: primaryColor,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                padding: const EdgeInsets.symmetric(
+                  vertical: 5,
+                  horizontal: 16,
+                ),
+                child: Text(
+                  portfolio.totalHoldingsInEuro,
+                  style: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: 16),
           Text(
             'Portfolio',
             style: GoogleFonts.poppins(

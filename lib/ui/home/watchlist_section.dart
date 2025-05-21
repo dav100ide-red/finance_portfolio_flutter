@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_finance_portfolio/const.dart';
+import 'package:flutter_finance_portfolio/data/models/ui_model.dart';
+import 'package:flutter_finance_portfolio/ui/ui_controller.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class WatchlistSection extends StatelessWidget {
+class WatchlistSection extends ConsumerWidget {
   const WatchlistSection({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final uiController = ref.read(uiControllerProvider.notifier);
+
     return Container(
       padding: const EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
       child: Column(
@@ -22,7 +27,9 @@ class WatchlistSection extends StatelessWidget {
                 ),
               ),
               MaterialButton(
-                onPressed: () {},
+                onPressed: () {
+                  uiController.setScreen(UiScreen.watchlist);
+                },
                 child: Text(
                   'View All',
                   style: GoogleFonts.poppins(
